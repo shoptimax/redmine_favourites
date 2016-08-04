@@ -1,5 +1,7 @@
+require_dependency 'query'
+
 module RedmineLike
-  module RedmineExt
+  module Patches
 
     module QueryPatch
       def self.included(base) # :nodoc:
@@ -21,14 +23,14 @@ module RedmineLike
 
     module ClassMethods
 
-      unless Query.respond_to?(:available_columns=)
+      unless IssueQuery.respond_to?(:available_columns=)
         # Setter for +available_columns+ that isn't provided by the core.
         def available_columns=(v)
           self.available_columns = (v)
         end
       end
 
-      unless Query.respond_to?(:add_available_column)
+      unless IssueQuery.respond_to?(:add_available_column)
         # Method to add a column to the +available_columns+ that isn't provided by the core.
         def add_available_column(column)
           self.available_columns << (column)
@@ -43,8 +45,6 @@ module RedmineLike
 
         available_filters_without_redmine_like
 
-        #return @available_filters unless project
-
         like_filters
 
         @like_filters.each do |filter|
@@ -54,7 +54,6 @@ module RedmineLike
       end
 
       def sql_for_like_state(field, operator, value)
-        #return sql_for_always_false unless project
         like_changesets = find_like_set
         return sql_for_issues_like(like_changesets, operator, value)
       end
@@ -110,10 +109,9 @@ module RedmineLike
       def like_filters
 
         @like_filters = []
-        #return @like_filters unless project
         return @like_filters unless @available_filters
 
-        @like_filters << LikeQueryFilter.new("like_state", { :type => :list, :order => @available_filters.size + 2,:values => ["True"] }, "", "")
+        @like_filters << LikeQueryFilter.new("like_state", { :type => :list, :name => l(:field_like_state), :order => @available_filters.size + 2, :values => ["True"] }, "", "" )
 
         return @like_filters
 
@@ -131,5 +129,9 @@ module RedmineLike
       end
     end #InstanceMethodsFor09Later
 
-  end #RedmineExt
+  end #Patches
 end #RedmineLike
+
+unless IssueQuery.included_modules.include?(RedmineLike::Patches::QueryPatch)
+  IssueQuery.send(:include, RedmineLike::Patches::QueryPatch)
+end

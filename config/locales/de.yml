@@ -1,0 +1,9 @@
+de:
+  heading_ticket_likes: "Ticket Favoriten"
+  button_like: "Like"
+  button_unlike: "Unlike"
+  field_like_state: "Like"
+  text_ticket_liked_success: "Ticket erfolgreich geliked! :)"
+  text_ticket_disliked_success: "Ticket erfolgreich entliked! :)"
+  likes_back_to_issues: "Zurück zum Ticket"
+  label_setting_filterid: "Filter ID"

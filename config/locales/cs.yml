@@ -1,4 +1,9 @@
 cs:
+  heading_ticket_likes: "Favourite issues"
   button_like: "Líbí se"
   button_unlike: "Už se nelíbí"
   field_like_state: "Líbí se"
+  text_ticket_liked_success: "Issue successfully liked! :)"
+  text_ticket_disliked_success: "Issue successfully disliked! :)"
+  likes_back_to_issues: "Back to issue"
+  label_setting_filterid: "Filter ID"

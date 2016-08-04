@@ -1,8 +1,5 @@
 class LikeController < ApplicationController
   unloadable
-    verify :method => :post,
-	   :only => [ :like, :unlike ],
-           :render => { :nothing => true, :status => :method_not_allowed }
 
   def like
     if User.current.pref[:others][:issue_like] == nil then 
@@ -13,6 +10,8 @@ class LikeController < ApplicationController
 	User.current.pref[:others][:issue_like]+=[params[:issue_id].to_i]
 	User.current.pref.save
     end
+    @issue_id = params[:issue_id]
+    redirect_to_referer_or {render :text => 'Issue liked', :layout => true}
   end
 
   def unlike
@@ -22,6 +21,8 @@ class LikeController < ApplicationController
     end
 	User.current.pref[:others][:issue_like]-=[params[:issue_id].to_i]
 	User.current.pref.save
+    @issue_id = params[:issue_id]
+    redirect_to_referer_or {render :text => 'Issue unliked', :layout => true}
   end
   
   def like?

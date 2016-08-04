@@ -1,7 +1,16 @@
 = Redmine Favorities
 
-Bookmarking favourite tasks by Like button with Query inclusion
+Bookmarking favourite issues by Like button with Query inclusion
 
 = Install
 
-script/plugin install git://github.com/alvila/redmine_favourites.git
+Clone repo into plugins/redmine_favourites
+
+run "rake redmine:plugins:migrate RAILS_ENV=production"
+
+= Usage
+
+Use the "Like" Button in the issue detail view to add/remove the issue to/from your personal likes.
+Use the issue filter and filter any issue list by "Like". Additionally, save the filter to a filter query and check the "query_id" parameter for that query.
+Enter that query_id into the plugin's settings to get a main menu link "Favourite issues".
+

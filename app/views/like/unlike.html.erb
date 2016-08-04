@@ -1,1 +1,7 @@
-<h2>Like#dislike</h2>
+<h2><%= l(:heading_ticket_likes) %></h2>
+
+<div><%= l(:text_ticket_disliked_success) %></div>
+
+<div class="likes-back">
+  <%= link_to l(:likes_back_to_issues),  {:controller => 'issues', :action => 'show', :id => @issue_id}, :class => 'icon icon-merge' %>
+</div>
