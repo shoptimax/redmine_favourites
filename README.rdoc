@@ -12,18 +12,20 @@ run "rake redmine:plugins:migrate RAILS_ENV=production"
 
 Use the "Like" Button in the issue detail view to add/remove the issue to/from your personal likes.
 
-![Like Button](https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_likebutton.png)
+https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_likebutton.png
 
 Use the issue filter and filter any issue list by "Like".
 
-![Like Filter](https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_filter.png)
+https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_filter.png
 
 Additionally, save the filter to a filter query and check the "query_id" parameter for that query.
 Enter that query_id into the plugin's settings to get a main menu link "Favourite issues".
 
-![Favourites settings](https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_settings.png)
+https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_settings.png
 
-![Favourites link](https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_link.png)
+Now you should have a new link in your top navigation:
+
+https://github.com/shoptimax/redmine_favourites/raw/master/assets/images/screenshots/redmine_favourites_link.png
 
 
 
